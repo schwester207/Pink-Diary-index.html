@@ -1,0 +1,1175 @@
+
+
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#fff0f5">
+
+<title>Pink Diary 🎀</title>
+
+<style>
+
+:root {
+
+  --pink: #ed8eaf;
+
+  --dark-pink: #bd547e;
+
+  --light: #fff0f5;
+
+  --cream: #fffaf7;
+
+  --text: #604653;
+
+}
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+body {
+
+  margin: 0;
+
+  font-family: -apple-system, BlinkMacSystemFont,
+
+    "Segoe UI", sans-serif;
+
+  color: var(--text);
+
+  background: linear-gradient(160deg, #fff0f5, #fffaf7);
+
+  min-height: 100vh;
+
+}
+
+header {
+
+  text-align: center;
+
+  padding: 30px 16px 22px;
+
+  background: rgba(255,255,255,0.7);
+
+  border-bottom: 2px solid #ffe0eb;
+
+}
+
+header .bow {
+
+  font-size: 38px;
+
+}
+
+h1 {
+
+  margin: 5px 0;
+
+  color: var(--dark-pink);
+
+  font-family: Georgia, serif;
+
+  font-size: 36px;
+
+}
+
+header p {
+
+  margin-bottom: 0;
+
+  font-size: 14px;
+
+}
+
+main {
+
+  width: min(100% - 28px, 620px);
+
+  margin: 22px auto 40px;
+
+}
+
+.card {
+
+  background: rgba(255,255,255,0.9);
+
+  border: 1px solid #f8d9e5;
+
+  border-radius: 22px;
+
+  padding: 20px;
+
+  margin-bottom: 18px;
+
+  box-shadow: 0 5px 18px #e7a6bd20;
+
+}
+
+h2 {
+
+  color: var(--dark-pink);
+
+  font-family: Georgia, serif;
+
+  margin-top: 0;
+
+}
+
+label {
+
+  display: block;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin: 14px 0 7px;
+
+}
+
+input, textarea, select {
+
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid #edc8d8;
+
+  border-radius: 12px;
+
+  background: #fffafd;
+
+  color: var(--text);
+
+  font: inherit;
+
+  font-size: 16px;
+
+}
+
+textarea {
+
+  min-height: 145px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+
+}
+
+button {
+
+  font: inherit;
+
+  cursor: pointer;
+
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 12px 16px;
+
+  transition: transform 0.15s;
+
+}
+
+button:active {
+
+  transform: scale(0.97);
+
+}
+
+.primary {
+
+  background: var(--pink);
+
+  color: white;
+
+  font-weight: bold;
+
+  width: 100%;
+
+  margin-top: 16px;
+
+}
+
+.secondary {
+
+  background: #ffe6ef;
+
+  color: var(--dark-pink);
+
+}
+
+.delete {
+
+  background: #fff0f0;
+
+  color: #b14d65;
+
+}
+
+.moods {
+
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 6px;
+
+}
+
+.mood {
+
+  padding: 10px 2px;
+
+  border: 2px solid #f7dce7;
+
+  background: white;
+
+  font-size: 23px;
+
+}
+
+.mood.selected {
+
+  background: #ffe3ee;
+
+  border-color: var(--pink);
+
+}
+
+.mood-name {
+
+  display: block;
+
+  font-size: 10px;
+
+  margin-top: 4px;
+
+}
+
+.actions {
+
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  margin-top: 12px;
+
+}
+
+.actions button {
+
+  flex: 1;
+
+  min-width: 100px;
+
+}
+
+.entry {
+
+  padding: 15px 0;
+
+  border-bottom: 1px dashed #efc9d9;
+
+}
+
+.entry:last-child {
+
+  border-bottom: none;
+
+}
+
+.entry h3 {
+
+  margin: 6px 0;
+
+  overflow-wrap: anywhere;
+
+}
+
+.entry p {
+
+  white-space: pre-wrap;
+
+  overflow-wrap: anywhere;
+
+  line-height: 1.6;
+
+}
+
+.entry-date {
+
+  color: #a47c8d;
+
+  font-size: 12px;
+
+}
+
+.entry-mood {
+
+  font-size: 22px;
+
+}
+
+.empty {
+
+  text-align: center;
+
+  padding: 22px 5px;
+
+  color: #a47c8d;
+
+  line-height: 1.8;
+
+}
+
+footer {
+
+  text-align: center;
+
+  padding: 20px;
+
+  color: #a47c8d;
+
+  font-size: 12px;
+
+}
+
+.notice {
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  color: #987485;
+
+}
+
+button:focus-visible,
+
+input:focus-visible,
+
+textarea:focus-visible,
+
+select:focus-visible {
+
+  outline: 3px solid #e7a0bd;
+
+  outline-offset: 2px;
+
+}
+
+@media (max-width: 360px) {
+
+  .card {
+
+    padding: 15px;
+
+  }
+
+  h1 {
+
+    font-size: 31px;
+
+  }
+
+  .mood {
+
+    font-size: 19px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="bow">🎀</div>
+
+  <h1>Pink Diary</h1>
+
+  <p>♡ Mein kleines Stückchen Glück ♡</p>
+
+</header>
+
+<main>
+
+  <section class="card">
+
+    <h2 id="formHeading">🌷 Mein neuer Eintrag</h2>
+
+    <form id="diaryForm">
+
+      <label for="date">Datum</label>
+
+      <input id="date" type="date" required>
+
+      <label for="title">Titel meines Tages</label>
+
+      <input
+
+        id="title"
+
+        type="text"
+
+        maxlength="100"
+
+        placeholder="z. B. Ein wunderschöner Tag ..."
+
+        required
+
+      >
+
+      <label>Wie fühle ich mich heute?</label>
+
+      <div class="moods" id="moods">
+
+        <button type="button" class="mood selected"
+
+          data-mood="🥰" aria-pressed="true">🥰
+
+          <span class="mood-name">Glücklich</span>
+
+        </button>
+
+        <button type="button" class="mood"
+
+          data-mood="😊" aria-pressed="false">😊
+
+          <span class="mood-name">Gut</span>
+
+        </button>
+
+        <button type="button" class="mood"
+
+          data-mood="😐" aria-pressed="false">😐
+
+          <span class="mood-name">Okay</span>
+
+        </button>
+
+        <button type="button" class="mood"
+
+          data-mood="🥺" aria-pressed="false">🥺
+
+          <span class="mood-name">Traurig</span>
+
+        </button>
+
+        <button type="button" class="mood"
+
+          data-mood="😴" aria-pressed="false">😴
+
+          <span class="mood-name">Müde</span>
+
+        </button>
+
+      </div>
+
+      <label for="content">Was ist heute passiert?</label>
+
+      <textarea id="content"
+
+        placeholder="Schreibe hier alles auf, was du festhalten möchtest ... 💗"
+
+        required></textarea>
+
+      <button class="primary" type="submit" id="saveButton">
+
+        💗 Eintrag speichern
+
+      </button>
+
+      <button class="secondary" type="button"
+
+        id="cancelEdit" hidden style="width:100%;margin-top:8px">
+
+        Bearbeiten abbrechen
+
+      </button>
+
+    </form>
+
+  </section>
+
+  <section class="card">
+
+    <h2>📖 Meine Erinnerungen</h2>
+
+    <label for="search">Einträge durchsuchen</label>
+
+    <input id="search" type="search"
+
+      placeholder="🔎 Suche nach einem Titel ...">
+
+    <p id="count" class="notice">0 Einträge gespeichert</p>
+
+    <div id="entries"></div>
+
+    <div class="actions">
+
+      <button class="secondary" id="exportButton" type="button">
+
+        📥 Backup erstellen
+
+      </button>
+
+      <button class="secondary" id="importButton" type="button">
+
+        📤 Backup laden
+
+      </button>
+
+    </div>
+
+    <input id="importFile" type="file"
+
+      accept=".json,application/json" hidden>
+
+    <p class="notice">
+
+      💕 Tipp: Erstelle regelmäßig ein Backup, damit du
+
+      deine Erinnerungen auch bei einem Browserwechsel
+
+      behalten kannst.
+
+    </p>
+
+  </section>
+
+  <section class="card">
+
+    <h2>🌸 Eine kleine Erinnerung</h2>
+
+    <p id="quote" style="line-height:1.8">
+
+      Du musst nicht jeden Tag perfekt machen.
+
+      Manchmal reicht es, ihn einfach zu erleben. ♡
+
+    </p>
+
+    <button class="secondary" id="quoteButton" type="button">
+
+      ✨ Neue Inspiration
+
+    </button>
+
+  </section>
+
+</main>
+
+<footer>
+
+  Mit ganz viel Liebe gemacht ♡ 🎀
+
+</footer>
+
+<script>
+
+const STORAGE_KEY = "pinkDiaryEntries_v1";
+
+const quotes = [
+
+  "Du musst nicht jeden Tag perfekt machen. Manchmal reicht es, ihn einfach zu erleben. ♡",
+
+  "Auch die kleinsten Momente können große Erinnerungen werden. 🌷",
+
+  "Sei heute so lieb zu dir wie zu deiner besten Freundin. 💗",
+
+  "Du darfst stolz auf dich sein, auch auf die kleinen Dinge. 🎀",
+
+  "Jeder neue Tag ist eine leere Seite in deinem Buch. ✨",
+
+  "Es ist okay, wenn nicht jeder Tag gleich schön ist. 🌸",
+
+  "Vergiss nicht, auch die kleinen Glücksmomente aufzuschreiben. ♡"
+
+];
+
+let entries = [];
+
+let selectedMood = "🥰";
+
+let editingId = null;
+
+const form = document.getElementById("diaryForm");
+
+const dateInput = document.getElementById("date");
+
+const titleInput = document.getElementById("title");
+
+const contentInput = document.getElementById("content");
+
+const entriesBox = document.getElementById("entries");
+
+const searchInput = document.getElementById("search");
+
+function today() {
+
+  const now = new Date();
+
+  const year = now.getFullYear();
+
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+
+  const day = String(now.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+
+}
+
+function loadEntries() {
+
+  try {
+
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    const parsed = saved ? JSON.parse(saved) : [];
+
+    if (Array.isArray(parsed)) {
+
+      entries = parsed.filter(item =>
+
+        item &&
+
+        typeof item.id === "string" &&
+
+        typeof item.title === "string" &&
+
+        typeof item.content === "string" &&
+
+        typeof item.date === "string"
+
+      );
+
+    }
+
+  } catch (error) {
+
+    entries = [];
+
+    alert("Die gespeicherten Einträge konnten nicht gelesen werden. Wenn du ein Backup hast, kannst du es laden.");
+
+  }
+
+}
+
+function saveEntries() {
+
+  try {
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+
+    return true;
+
+  } catch (error) {
+
+    alert("Speichern war nicht möglich. Vielleicht ist der Browserspeicher voll oder blockiert. Erstelle, falls möglich, ein Backup.");
+
+    return false;
+
+  }
+
+}
+
+function escapeHTML(value) {
+
+  return String(value).replace(/[&<>"']/g, char => ({
+
+    "&": "&amp;",
+
+    "<": "&lt;",
+
+    ">": "&gt;",
+
+    '"': "&quot;",
+
+    "'": "&#39;"
+
+  })[char]);
+
+}
+
+function formatDate(date) {
+
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+
+    return date;
+
+  }
+
+  const parts = date.split("-").map(Number);
+
+  const parsed = new Date(parts[0], parts[1] - 1, parts[2]);
+
+  return Number.isNaN(parsed.getTime())
+
+    ? date
+
+    : parsed.toLocaleDateString("de-DE", {
+
+        day: "2-digit",
+
+        month: "long",
+
+        year: "numeric"
+
+      });
+
+}
+
+function renderEntries() {
+
+  const query = searchInput.value.trim().toLowerCase();
+
+  const filtered = entries
+
+    .filter(item =>
+
+      (item.title + " " + item.content)
+
+        .toLowerCase().includes(query)
+
+    )
+
+    .sort((a, b) =>
+
+      b.date.localeCompare(a.date) ||
+
+      b.id.localeCompare(a.id)
+
+    );
+
+  document.getElementById("count").textContent =
+
+    `${entries.length} ${entries.length === 1 ? "Eintrag" : "Einträge"} gespeichert`;
+
+  if (filtered.length === 0) {
+
+    entriesBox.innerHTML = `
+
+      <div class="empty">
+
+        🌸<br>
+
+        ${query
+
+          ? "Keine passenden Einträge gefunden."
+
+          : "Hier warten deine Erinnerungen!<br>Schreibe deinen ersten Eintrag. 💗"}
+
+      </div>`;
+
+    return;
+
+  }
+
+  entriesBox.innerHTML = filtered.map(item => `
+
+    <article class="entry">
+
+      <div class="entry-date">
+
+        ${escapeHTML(formatDate(item.date))}
+
+      </div>
+
+      <div class="entry-mood">
+
+        ${escapeHTML(item.mood || "💗")}
+
+      </div>
+
+      <h3>${escapeHTML(item.title)}</h3>
+
+      <p>${escapeHTML(item.content)}</p>
+
+      <div class="actions">
+
+        <button class="secondary" type="button"
+
+          data-action="edit" data-id="${escapeHTML(item.id)}">
+
+          ✏️ Bearbeiten
+
+        </button>
+
+        <button class="delete" type="button"
+
+          data-action="delete" data-id="${escapeHTML(item.id)}">
+
+          🗑️ Löschen
+
+        </button>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
+}
+
+function resetForm() {
+
+  form.reset();
+
+  dateInput.value = today();
+
+  selectedMood = "🥰";
+
+  editingId = null;
+
+  document.querySelectorAll(".mood").forEach(button => {
+
+    const selected = button.dataset.mood === selectedMood;
+
+    button.classList.toggle("selected", selected);
+
+    button.setAttribute("aria-pressed", String(selected));
+
+  });
+
+  document.getElementById("formHeading").textContent =
+
+    "🌷 Mein neuer Eintrag";
+
+  document.getElementById("saveButton").textContent =
+
+    "💗 Eintrag speichern";
+
+  document.getElementById("cancelEdit").hidden = true;
+
+}
+
+document.querySelectorAll(".mood").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    selectedMood = button.dataset.mood;
+
+    document.querySelectorAll(".mood").forEach(other => {
+
+      const selected = other === button;
+
+      other.classList.toggle("selected", selected);
+
+      other.setAttribute("aria-pressed", String(selected));
+
+    });
+
+  });
+
+});
+
+form.addEventListener("submit", event => {
+
+  event.preventDefault();
+
+  const title = titleInput.value.trim();
+
+  const content = contentInput.value.trim();
+
+  const date = dateInput.value;
+
+  if (!title || !content || !date) {
+
+    alert("Bitte fülle Datum, Titel und Text aus. 💗");
+
+    return;
+
+  }
+
+  const previous = editingId
+
+    ? entries.find(item => item.id === editingId)
+
+    : null;
+
+  const entry = {
+
+    id: editingId || (
+
+      Date.now().toString() + "-" +
+
+      Math.random().toString(36).slice(2, 9)
+
+    ),
+
+    date,
+
+    title,
+
+    content,
+
+    mood: selectedMood,
+
+    createdAt: previous
+
+      ? previous.createdAt
+
+      : new Date().toISOString()
+
+  };
+
+  const oldEntries = [...entries];
+
+  if (editingId) {
+
+    entries = entries.map(item =>
+
+      item.id === editingId ? entry : item
+
+    );
+
+  } else {
+
+    entries.push(entry);
+
+  }
+
+  if (!saveEntries()) {
+
+    entries = oldEntries;
+
+    return;
+
+  }
+
+  resetForm();
+
+  renderEntries();
+
+  alert("Dein Eintrag wurde gespeichert! 🎀");
+
+});
+
+entriesBox.addEventListener("click", event => {
+
+  const button = event.target.closest("button[data-action]");
+
+  if (!button) return;
+
+  const item = entries.find(entry =>
+
+    entry.id === button.dataset.id
+
+  );
+
+  if (!item) return;
+
+  if (button.dataset.action === "edit") {
+
+    editingId = item.id;
+
+    dateInput.value = item.date;
+
+    titleInput.value = item.title;
+
+    contentInput.value = item.content;
+
+    selectedMood = item.mood || "🥰";
+
+    document.querySelectorAll(".mood").forEach(other => {
+
+      const selected = other.dataset.mood === selectedMood;
+
+      other.classList.toggle("selected", selected);
+
+      other.setAttribute("aria-pressed", String(selected));
+
+    });
+
+    document.getElementById("formHeading").textContent =
+
+      "✏️ Eintrag bearbeiten";
+
+    document.getElementById("saveButton").textContent =
+
+      "💗 Änderungen speichern";
+
+    document.getElementById("cancelEdit").hidden = false;
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  }
+
+  if (button.dataset.action === "delete") {
+
+    if (!confirm("Möchtest du diesen Tagebucheintrag wirklich löschen?")) {
+
+      return;
+
+    }
+
+    const oldEntries = [...entries];
+
+    entries = entries.filter(entry => entry.id !== item.id);
+
+    if (!saveEntries()) {
+
+      entries = oldEntries;
+
+      return;
+
+    }
+
+    if (editingId === item.id) resetForm();
+
+    renderEntries();
+
+  }
+
+});
+
+document.getElementById("cancelEdit").addEventListener("click", resetForm);
+
+searchInput.addEventListener("input", renderEntries);
+
+document.getElementById("quoteButton").addEventListener("click", () => {
+
+  const quote = document.getElementById("quote");
+
+  const current = quote.textContent;
+
+  const options = quotes.filter(item => item !== current);
+
+  quote.textContent =
+
+    options[Math.floor(Math.random() * options.length)];
+
+});
+
+document.getElementById("exportButton").addEventListener("click", () => {
+
+  const file = new Blob(
+
+    [JSON.stringify(entries, null, 2)],
+
+    { type: "application/json" }
+
+  );
+
+  const url = URL.createObjectURL(file);
+
+  const link = document.createElement("a");
+
+  link.href = url;
+
+  link.download = `pink-diary-backup-${today()}.json`;
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  link.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+});
+
+document.getElementById("importButton").addEventListener("click", () => {
+
+  document.getElementById("importFile").click();
+
+});
+
+document.getElementById("importFile").addEventListener("change", async event => {
+
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  try {
+
+    const imported = JSON.parse(await file.text());
+
+    if (!Array.isArray(imported) || !imported.every(item =>
+
+      item &&
+
+      typeof item.id === "string" &&
+
+      typeof item.title === "string" &&
+
+      typeof item.content === "string" &&
+
+      typeof item.date === "string"
+
+    )) {
+
+      throw new Error("Ungültiges Backup");
+
+    }
+
+    if (!confirm(
+
+      "Das Laden eines Backups ersetzt deine aktuellen Einträge. Hast du diese vorher gesichert?"
+
+    )) {
+
+      return;
+
+    }
+
+    const oldEntries = entries;
+
+    entries = imported;
+
+    if (!saveEntries()) {
+
+      entries = oldEntries;
+
+      return;
+
+    }
+
+    resetForm();
+
+    renderEntries();
+
+    alert("Dein Backup wurde geladen! 💗");
+
+  } catch (error) {
+
+    alert("Das Backup konnte nicht geladen werden. Bitte wähle eine gültige Pink-Diary-JSON-Datei.");
+
+  } finally {
+
+    event.target.value = "";
+
+  }
+
+});
+
+dateInput.value = today();
+
+loadEntries();
+
+renderEntries();
+
+</script>
+
+</body>
+
+</html>
